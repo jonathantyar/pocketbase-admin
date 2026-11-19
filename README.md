@@ -115,6 +115,10 @@ Nothing needs to be created or migrated inside PocketBase.
 
 ### 2. Get the binary
 
+Prebuilt binaries for Linux, macOS and Windows are attached to every
+[release](https://github.com/jonathantyar/pocketbase-admin/releases) (checksums in `SHA256SUMS.txt`).
+Or build from source:
+
 ```sh
 git clone https://github.com/jonathantyar/pocketbase-admin.git
 cd pocketbase-admin
