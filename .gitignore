@@ -12,3 +12,6 @@ ui/dist/*.map
 
 # os
 .DS_Store
+
+# release builds
+/dist
