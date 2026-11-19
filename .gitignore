@@ -1,0 +1,14 @@
+# build output
+/pocketbase-admin
+pba
+
+# local configs and secrets
+admin.json
+*.local.json
+
+# frontend
+ui/node_modules
+ui/dist/*.map
+
+# os
+.DS_Store

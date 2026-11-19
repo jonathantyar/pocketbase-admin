@@ -1,0 +1,49 @@
+#!/bin/sh
+# pocketbase-admin — example config
+# Copy to admin.json and adjust, or generate with `pocketbase-admin init`.
+
+{
+  "pocketbase": {
+    "url": "https://pocketbase.example.dev",
+    "superuserEmail": "general@example.dev",
+    "superuserPassword": "${PB_ADMIN_PASSWORD}"
+  },
+
+  "server": {
+    "addr": "127.0.0.1:8092",
+    "sessionSecret": "replace-with-64-random-hex-chars",
+    "appName": "pocketbase-admin",
+    "appDescription": "Admin panel for PocketBase with multi-tenant RBAC",
+    "logo": "box",
+    "pocketbaseVersion": "0.40.5"
+  },
+
+  "projects": {
+    "tunangan": {
+      "label": "Undangan Tunangan",
+      "collections": {
+        "undangan": { "label": "Undangan", "listFields": ["slug", "bride_short", "groom_short"] },
+        "undangan_guests": { "label": "Tamu" },
+        "undangan_rsvp": { "label": "RSVP" }
+      },
+      "roles": {
+        "owner": { "label": "Owner", "actions": ["*"] },
+        "editor": {
+          "label": "Editor",
+          "actions": ["list", "view", "create", "update"],
+          "collections": {
+            "undangan": ["list", "view", "update"]
+          }
+        },
+        "viewer": { "label": "Viewer", "actions": ["list", "view"] }
+      },
+      "users": [
+        {
+          "email": "editor@example.com",
+          "passwordHash": "$2a$10$...",
+          "role": "editor"
+        }
+      ]
+    }
+  }
+}
